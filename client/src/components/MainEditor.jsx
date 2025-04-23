@@ -2,13 +2,26 @@ import CodeMirror from '@uiw/react-codemirror';
 import { cppLanguage } from '@codemirror/lang-cpp';
 import { dracula } from '@uiw/codemirror-theme-dracula';
 import PropTypes from 'prop-types';
+import { useState,useEffect } from 'react';
 
 function MainEditor({ socketRef, roomId, user, val, isReady }) {
+
+  console.log(val)
+
+  const [writeCodeValue,setWriteCodeValue] = useState(val)
+
+
+  useEffect(()=>{
+    if(val){
+      setWriteCodeValue(val)
+    }
+  },[])
+
   const handleChange = (e) => {
     socketRef.current.emit('codechange', {
       user,
       roomId,
-      e // e acts as a code value here
+      e
     });
     localStorage.setItem('code', e);
   };
@@ -26,7 +39,7 @@ function MainEditor({ socketRef, roomId, user, val, isReady }) {
       )}
       <CodeMirror
         id="codeEdit"
-        value={val}
+        value={writeCodeValue}
         height="100%"
         className={`h-full text-base border border-[#685a96] rounded-lg ${!isReady ? 'opacity-50' : ''}`}
         theme={dracula}

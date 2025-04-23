@@ -12,7 +12,7 @@ export default function Left({ AboutProblem, num, handleBack }) { // Destructure
     if (AboutProblem) {
       console.log('Updated AboutProblem:', AboutProblem); // Log updates for debugging
     }
-  }, [AboutProblem]);
+  }, []);
 
   return (
     <>

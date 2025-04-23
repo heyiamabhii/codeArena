@@ -11,7 +11,7 @@ export default function Programmers({ clients , roomId , admin , socketRef , cli
         }
       };
 
-      console.log(roomId)
+      console.log("rerender",roomId)
 
   return (
     <div className="px-2 pb-2 w-[96vw] border-b-2 mb-2 border-violet-600 overflow-x-scroll lg:w-auto lg:p-4 lg:pb-0 lg:pt-0 max-h-[80%] lg:max-h-[20%] lg:h-[20%]">
@@ -38,12 +38,9 @@ export default function Programmers({ clients , roomId , admin , socketRef , cli
                     </div>
                   );
                 })}
-
-            
                 
               </span>
 
-             
             </div>
   )
 }

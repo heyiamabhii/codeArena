@@ -64,7 +64,10 @@ export default function Auth() {
       localStorage.setItem("userInfo", userJson);
       setLoading(false)
       toast.success('Login successfully :)',{ style: { background : "#1e293b" , color : "white" },})
-      navigator("/");
+        window.location.reload();
+      setTimeout(() => {
+        navigator("/");
+      }, 200);
       console.log("res",response)
     } catch (error) {
       document.getElementById("loginErrMsg").style.display="block";

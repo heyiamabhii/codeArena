@@ -4,6 +4,7 @@ import MainEditor from "../../components/MainEditor";
 import ShareEditor from '../../components/ShareEditor';
 import { TiDeleteOutline } from "react-icons/ti";
 import { Share } from "@phosphor-icons/react/dist/ssr";
+import { useState } from "react";
 
 export default function Center({
   roomId,
@@ -23,6 +24,9 @@ export default function Center({
   language,
   handleVallanguage
 }) {
+
+  const [lang,setLang] = useState("cpp")
+
   return (
     <>
       <Panel className="mr-1">
@@ -33,17 +37,15 @@ export default function Center({
                 id="language"
                 onChange={(e) => {
                   setLanguage(e.target.value);
+                  setLang(e.target.value)
                 }}
+                value={lang}
                 className="bg-transparent border text-purple-500 p-1 hover:bg-transparent text-sm rounded-lg"
               >
                 <option value="cpp">CPP</option>
-                <option value="c">C</option>
                 <option value="java">JAVA</option>
                 <option value="python">PYTHON</option>
-                <option value="javascript">JAVASCRIPT</option>
-                <option value="csharp">C#</option>
-                <option value="rust">RUST</option>
-                <option value="go">GO</option>
+                <option value="js">JAVASCRIPT</option>
               </select>
 
               <div className={`${isRoom ? "block" : "hidden"}`}>
@@ -77,7 +79,7 @@ export default function Center({
                     <TiDeleteOutline
                       size={23}
                       onClick={() => {
-                        setShow(false); // Use setShow to toggle visibility
+                        setShow(false);
                       }}
                     />
                   </div>
@@ -85,15 +87,18 @@ export default function Center({
                 </div>
               ) : (
                 <div className="h-full">
-                  <MainEditor
-                    socketRef={socketRef}
-                    roomId={roomId}
-                    user={clientUsername}
-                    val={
-                      language === "cpp" ? handleVallanguage(questionData.templatecpp) : handleVallanguage(questionData.templatejava)
-                    }
-                    isReady={ready}
-                  />
+                 <MainEditor
+  socketRef={socketRef}
+  roomId={roomId}
+  user={clientUsername}
+  val={
+    handleVallanguage(
+      questionData?.[`template${language}`] || ''
+    )
+  }
+  isReady={ready}
+/>
+
                 </div>
               )}
             </div>

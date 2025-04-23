@@ -45,6 +45,8 @@ export default function Editor() {
     description: "",
     templatecpp: "",
     templatejava: "",
+    templatejs : "",
+    templatepython : "",
     solutioncpp: "",
     solutionjava: "",
     testCases: [],
@@ -254,6 +256,8 @@ export default function Editor() {
       description: problem.description,
       templatecpp: problem.template.cpp,
       templatejava: problem.template.java,
+      templatejs : problem.template.js,
+      templatepython : problem.template.python,
       solutioncpp: problem.solution.cpp,
       solutionjava: problem.solution.java,
       testCases: problem.demo.map((i) => ({

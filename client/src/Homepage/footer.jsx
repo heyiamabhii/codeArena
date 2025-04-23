@@ -19,7 +19,7 @@ export function Footer() {
                 weight='fill' 
               />
               by 
-              <a href="https://www.instagram.com/__heyiamabhi__?utm_source=qr&igsh=MXhpcmV6czU3Z3d5NA==" target='_blank' rel='noreferrer' className='text-violet-600 ml-1 underline font-bold'>Abhishek Rajbhar</a>
+              <a href="https://www.linkedin.com/in/abhishek-rajbhar-175453294/" target='_blank' rel='noreferrer' className='text-violet-600 ml-1 underline font-bold'>Abhishek Rajbhar</a>
               {/* <a href="https://vishalweb.vercel.app/" target='_blank' rel='noreferrer' className='text-white ml-1 underline border-violet-500 bg-violet-600 text-sm py-1 px-2 rounded-md'>Abhishek Rajbhar</a> */}
             </span>
           </div>

@@ -101,14 +101,28 @@ export const Navbar = () => {
         });
     } catch (error) {
         // Handle any errors that occur during logout
-        toast.error('Logout failed. Please try again.', {
-            style: {
-                background: "#ff4d4f",
-                color: "white"
-            },
-        });
-        console.error('Logout error:', error);
-    }
+    //     toast.error('Logout failed. Please try again.', {
+    //         style: {
+    //             background: "#ff4d4f",
+    //             color: "white"
+    //         },
+    //     });
+    //     console.error('Logout error:', error);
+    // }
+    localStorage.clear();
+    sessionStorage.clear();
+
+    // Redirect to the login page or home page
+    window.location.href = '/'; // Adjust as needed
+
+    // Provide feedback to the user
+    toast.success('Logout successful!', {
+        style: {
+            background: "#1e293b",
+            color: "white"
+        },
+    });
+  }
 };
 
   return (
